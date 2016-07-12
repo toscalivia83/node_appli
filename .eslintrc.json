@@ -1,0 +1,17 @@
+{
+    "globals": {
+    	"describe": true
+	},
+    "extends": "standard",
+    "plugins": [
+        "standard"
+    ],
+    "rules": {
+    	"no-alert": 1,
+    	"no-console": 1,
+    	"no-debugger": 2
+    },
+    "env":{
+    	"browser": true
+    }
+}
