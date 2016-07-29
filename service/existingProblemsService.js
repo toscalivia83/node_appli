@@ -38,10 +38,12 @@ exports.getFormattedExistingProblemsService = function () {
       var tableau = existingProblems.map(function (obj) {
         var existingProblemsFormat = {
           typeProbleme: existingProblems.typeProbleme,
-          duree: existingProblems.duree
+          duree: existingProblems.duree,
+          id: existingProblems.id
         }
         existingProblemsFormat[generalConfig.selectColumnTypeProblem] = obj.typeProbleme
         existingProblemsFormat[generalConfig.selectColumnDuree] = obj.duree
+        existingProblemsFormat[generalConfig.selectColumnId] = obj.id
         return existingProblemsFormat
       })
       resolve(tableau)
@@ -49,6 +51,19 @@ exports.getFormattedExistingProblemsService = function () {
     .catch(function (err) {
       reject(err)
     })
+  })
+  return promise
+}
+
+exports.deleteExistingProblemsService = function (param) {
+  var promise = new Promise(function (resolve, reject) {
+    existingProblemData.deleteProblem(param.params.problem_id)
+      .then(function (param) {
+        resolve(param)
+      })
+      .catch(function (err) {
+        reject(err)
+      })
   })
   return promise
 }

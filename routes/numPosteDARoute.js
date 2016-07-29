@@ -35,4 +35,18 @@ numPosteDAAPI.post('/postesDA', function (req, res) {
   })
 })
 
+// ////////////////////////DELETE POSTES DA///////////////////////////////
+numPosteDAAPI.delete('/postesDA/:problem_id', function (req, res) {
+  data.configData()
+  posteDAService.deletePosteDAService(req)
+  .then(function (numPosteDA) {
+    res.status(202)
+    res.json(numPosteDA)
+  })
+  .catch(function (err) {
+    res.status(500)
+    res.json(err)
+  })
+})
+
 module.exports = numPosteDAAPI

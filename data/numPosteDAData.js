@@ -38,3 +38,21 @@ exports.addNumPostesDA = function (problem) {
   })
   return promise
 }
+
+exports.deletePosteDA = function (param) {
+  var promise = new Promise(function (resolve, reject) {
+    NumPosteDAModel.findByIdAndRemove(param, function (err, numPosteDA) {
+      if (err) {
+        reject(err)
+        return
+      }
+      if (numPosteDA === null) {
+        reject(err)
+        return
+      }
+      mongoose.connection.close()
+      resolve(numPosteDA)
+    })
+  })
+  return promise
+}

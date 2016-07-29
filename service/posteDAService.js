@@ -27,9 +27,11 @@ exports.getFormattedNumPosteDAService = function () {
       .then(function (posteDA) {
         var tableau = posteDA.map(function (obj) {
           var numPosteDAFormat = {
-            numPosteDA: posteDA.numPosteDA
+            numPosteDA: posteDA.numPosteDA,
+            id: posteDA.id
           }
           numPosteDAFormat[generalConfig.selectColumnNumPosteDA] = obj.numPosteDA
+          numPosteDAFormat[generalConfig.selectColumnId] = obj.id
           return numPosteDAFormat
         })
         resolve(tableau)
@@ -40,3 +42,18 @@ exports.getFormattedNumPosteDAService = function () {
   })
   return promise
 }
+
+exports.deletePosteDAService = function (param) {
+  var promise = new Promise(function (resolve, reject) {
+    console.log(param.params)
+    numPosteDAData.deletePosteDA(param.params.problem_id)
+      .then(function (param) {
+        resolve(param)
+      })
+      .catch(function (err) {
+        reject(err)
+      })
+  })
+  return promise
+}
+

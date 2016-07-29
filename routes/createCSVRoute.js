@@ -19,8 +19,9 @@ createCSVAPI.get('/CSV', function (req, res, next) {
       if (err) {
         res.json(err)
       }
-      res.setHeader('Content-Type', 'text/csv')
-      res.status(201)
+      res.setHeader('Content-Type', 'text/plain')
+      res.setHeader('Content-Disposition', 'attachment; filename="export.csv"')
+      res.status(200)
       res.send(csv)
     })
     .catch(function (err) {

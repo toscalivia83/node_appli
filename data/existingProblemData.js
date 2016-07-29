@@ -40,3 +40,21 @@ exports.addExistingProblems = function (problem) {
   })
   return promise
 }
+
+exports.deleteProblem = function (param) {
+  var promise = new Promise(function (resolve, reject) {
+    ExistingProblemsModel.findByIdAndRemove(param, function (err, existingProblems) {
+      if (err) {
+        reject(err)
+        return
+      }
+      if (existingProblems === null) {
+        reject(err)
+        return
+      }
+      mongoose.connection.close()
+      resolve(existingProblems)
+    })
+  })
+  return promise
+}

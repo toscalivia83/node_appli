@@ -51,7 +51,7 @@ exports.postProblemsService = function (body) {
 }
 
 exports.getFormattedProblemsService = function () {
-  var selectColumnsTable = generalConfig.fields
+  var selectColumnsTable = generalConfig.fieldsSelectColumns
   var promise = new Promise(function (resolve, reject) {
     problemData.getAllProblems(selectColumnsTable)
       .then(function (problems) {
@@ -63,7 +63,8 @@ exports.getFormattedProblemsService = function () {
             typeProbleme: problems.typeProbleme,
             commentaire: problems.commentaire,
             duree: problems.duree,
-            date: problems.date
+            date: problems.date,
+            id: problems.id
           }
 
           tableauFormat[generalConfig.selectColumnUser] = obj.user
@@ -73,6 +74,7 @@ exports.getFormattedProblemsService = function () {
           tableauFormat[generalConfig.selectColumnCommentaire] = obj.commentaire
           tableauFormat[generalConfig.selectColumnDuree] = obj.duree
           tableauFormat[generalConfig.selectColumnDate] = obj.date
+          tableauFormat[generalConfig.selectColumnId] = obj.id
           return tableauFormat
         })
         resolve(tableau)

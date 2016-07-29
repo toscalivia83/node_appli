@@ -34,7 +34,7 @@ problemsAPI.post('/problems', function (req, res) {
   })
 })
 
-// ////////////////////////POST PROBLEMS///////////////////////////////
+// ////////////////////////DELETE PROBLEMS///////////////////////////////
 problemsAPI.delete('/problems/:problem_id', function (req, res) {
   data.configData()
   creationService.deleteProblemsService(req)

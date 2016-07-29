@@ -34,4 +34,18 @@ existingProblemsAPI.post('/problemsTypes', function (req, res) {
   })
 })
 
+// ////////////////////////DELETE EXISTING PROBLEMS///////////////////////////////
+existingProblemsAPI.delete('/problemsTypes/:problem_id', function (req, res) {
+  data.configData()
+  existingProblemsService.deleteExistingProblemsService(req)
+  .then(function (existingProblems) {
+    res.status(202)
+    res.json(existingProblems)
+  })
+  .catch(function (err) {
+    res.status(500)
+    res.json(err)
+  })
+})
+
 module.exports = existingProblemsAPI
