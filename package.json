@@ -1,6 +1,9 @@
 {
   "name": "my-app",
   "version": "0.1.0",
+  "scripts": {
+    "start": "node user.js"
+  },
   "dependencies": {
     "body-parser": "~1.15.1",
     "cookie-session": "~2.0.0-alpha.1",
