@@ -1,4 +1,4 @@
-var problemService = require('../service/problemTypeService')
+var problemService = require('../service/problemtypeService')
 
 module.exports = {
 

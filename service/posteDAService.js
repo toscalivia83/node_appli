@@ -45,7 +45,6 @@ exports.getFormattedNumPosteDAService = function () {
 
 exports.deletePosteDAService = function (param) {
   var promise = new Promise(function (resolve, reject) {
-    console.log(param.params)
     numPosteDAData.deletePosteDA(param.params.problem_id)
       .then(function (param) {
         resolve(param)

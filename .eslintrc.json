@@ -1,6 +1,7 @@
 {
     "globals": {
-    	"describe": true
+    	"describe": true,
+        "it": true
 	},
     "extends": "standard",
     "plugins": [
