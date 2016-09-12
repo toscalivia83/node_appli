@@ -39,7 +39,7 @@ You have to install nodejs and mongodb on your computer.
 - In command line (CMD), follow the path until the node_appli project location and launch : npm install. It will install all dependencies you need to run this application. /!\ Your system needs internet to find dependencies to install
 - You have to launch mongodb. For this, in CMD follow the path of the install package until ..\MongoDB\Server\3.2\bin and then launch mongod.
 - Launch "npm start" to launch node_appli application.
-- Once both are running, in CMD follow the path until angular_appli folder and lauchn npm run serve.
+- Once both are running, in CMD follow the path until angular_appli folder and launch npm start.
 
 The application will automatically be launched in your browser if everything is ok.
 
